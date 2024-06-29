@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Module_18.Interfaces
+namespace YoutubeProject
 {
-    internal interface IAction
+    abstract class Video
     {
-        void Run();
-        void Undo();    
+        public abstract void GetInfo();
+        public abstract void Download();
     }
 }

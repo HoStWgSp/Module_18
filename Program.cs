@@ -11,12 +11,7 @@ namespace Module_18
     {
         static void Main(string[] args)
         {
-            Pult pult = new Pult();
-            Gate gate = new Gate();
-
-            pult.SetAction(new GateOpenAction(gate));
-            pult.OpenButton();
-            pult.CloseButton();
+            
 
             Console.ReadKey();
         }
