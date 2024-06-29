@@ -1,4 +1,5 @@
 ﻿
+using Module_18.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,19 +12,16 @@ namespace Module_18
     {
         static void Main(string[] args)
         {
-            CarPlant carPlant = new CarPlant();
+            ILocation location = new Point(45.22, 13.56);
+            ILocation newLocation = location.Clone();
 
-            Conveyor builder = new CarConveyor();
-            carPlant.Construct(builder);
-            builder.Product.Show();
+            location.GetInfo();
+            newLocation.GetInfo();
 
-            builder = new MotoConveyor();
-            carPlant.Construct(builder);
-            builder.Product.Show();
-
-            builder = new ScooterConveyor();
-            carPlant.Construct(builder);
-            builder.Product.Show();
+            location = new Place("Аравинская стрит");
+            newLocation = location.Clone();
+            location.GetInfo();
+            newLocation.GetInfo();
 
             Console.ReadKey();
         }
