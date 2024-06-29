@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Module_18
+namespace Module_18.Interfaces
 {
-    abstract class Command
+    internal interface IHeater
     {
-        public abstract void Run();
-        public abstract void Cancel();
+        void Heat();
     }
 }

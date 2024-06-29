@@ -11,15 +11,15 @@ namespace Module_18
     {
         static void Main(string[] args)
         {
-            var sender = new Sender();
+            // Подключаем котел на газу
+            var boiler = new Boiler(30, "Bosch", new GasHeater());
+            // Запускаем
+            boiler.Start();
 
-            var receiver = new Receiver();
-
-            var commandOne = new CommandOne(receiver);
-
-            sender.SetCommand(commandOne);
-
-            sender.Run();
+            // газ закончился. Переключаемся на электричество
+            boiler.Heater = new ElectricHeater();
+            // Запускаем
+            boiler.Start();
 
             Console.ReadKey();
         }
