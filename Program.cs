@@ -1,5 +1,4 @@
 ﻿
-using Module_18.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,16 +11,19 @@ namespace Module_18
     {
         static void Main(string[] args)
         {
-            ILocation location = new Point(45.22, 13.56);
-            ILocation newLocation = location.Clone();
+            
 
-            location.GetInfo();
-            newLocation.GetInfo();
+            BaseClass myObject = new ImplementationOne(1);
+            myObject.GetId();
 
-            location = new Place("Аравинская стрит");
-            newLocation = location.Clone();
-            location.GetInfo();
-            newLocation.GetInfo();
+            BaseClass clone = myObject.Clone();
+            clone.GetId();
+
+            myObject = new ImplementationTwo(2);
+            myObject.GetId();
+
+            clone = myObject.Clone();
+            clone.GetId();
 
             Console.ReadKey();
         }
