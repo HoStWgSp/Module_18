@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Module_18.Interfaces
 {
-    internal interface IHeater
+    internal interface IAction
     {
-        void Heat();
+        void Run();
+        void Undo();    
     }
 }

@@ -11,15 +11,12 @@ namespace Module_18
     {
         static void Main(string[] args)
         {
-            // Подключаем котел на газу
-            var boiler = new Boiler(30, "Bosch", new GasHeater());
-            // Запускаем
-            boiler.Start();
+            Pult pult = new Pult();
+            Gate gate = new Gate();
 
-            // газ закончился. Переключаемся на электричество
-            boiler.Heater = new ElectricHeater();
-            // Запускаем
-            boiler.Start();
+            pult.SetAction(new GateOpenAction(gate));
+            pult.OpenButton();
+            pult.CloseButton();
 
             Console.ReadKey();
         }
