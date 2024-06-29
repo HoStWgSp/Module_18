@@ -11,19 +11,15 @@ namespace Module_18
     {
         static void Main(string[] args)
         {
-            
+            var sender = new Sender();
 
-            BaseClass myObject = new ImplementationOne(1);
-            myObject.GetId();
+            var receiver = new Receiver();
 
-            BaseClass clone = myObject.Clone();
-            clone.GetId();
+            var commandOne = new CommandOne(receiver);
 
-            myObject = new ImplementationTwo(2);
-            myObject.GetId();
+            sender.SetCommand(commandOne);
 
-            clone = myObject.Clone();
-            clone.GetId();
+            sender.Run();
 
             Console.ReadKey();
         }
