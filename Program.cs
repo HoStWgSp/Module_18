@@ -11,20 +11,19 @@ namespace Module_18
     {
         static void Main(string[] args)
         {
-            TemplateEngine templateEngine = new TemplateEngine();
+            CarPlant carPlant = new CarPlant();
 
-            // создаем шаблонизатор для приветственной рассылки
-            TemplateBuilder builder = new WelcomeTemplateBuilder();
-            // генерируем  приветственное письо с текстом
-            Template greetingsTemplate = templateEngine.GenerateTemplate(builder);
-            Console.WriteLine(greetingsTemplate.ToString());
+            Conveyor builder = new CarConveyor();
+            carPlant.Construct(builder);
+            builder.Product.Show();
 
+            builder = new MotoConveyor();
+            carPlant.Construct(builder);
+            builder.Product.Show();
 
-            // переопределяем шаблонизатор для рассылки с номером заказа
-            builder = new OrderTemplateBuilder();
-            // генерируем  письмо  с номером заказа
-            Template orderTemplate = templateEngine.GenerateTemplate(builder);
-            Console.WriteLine(orderTemplate.ToString());
+            builder = new ScooterConveyor();
+            carPlant.Construct(builder);
+            builder.Product.Show();
 
             Console.ReadKey();
         }
